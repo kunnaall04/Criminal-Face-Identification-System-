@@ -95,7 +95,7 @@ database='cfis'
 
 1. Navigate to the project directory:
 ```bash
-cd criminal_face_identification_system/amancode/amancode/project/project/
+cd criminal_face_identification_system/CFIS/CFIS/project/project/
 ```
 
 2. Run the main application:
@@ -107,8 +107,8 @@ python home.py
 
 ```
 criminal_face_identification_system/
-├── amancode/
-│   └── amancode/
+├── CFIS/
+│   └── CFIS/
 │       └── project/
 │           └── project/
 │               ├── home.py              # Main application file
@@ -130,6 +130,12 @@ criminal_face_identification_system/
 │                   ├── back.png
 │                   ├── previous.png
 │                   └── next.png
+├── screenshots/                         # Application interface screenshots
+│   ├── home_page.png
+│   ├── register_criminal.png
+│   ├── detect_criminal.png
+│   ├── criminal_profile.png
+│   └── video_surveillance.png
 └── README.md
 ```
 
