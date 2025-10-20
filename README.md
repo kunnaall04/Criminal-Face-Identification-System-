@@ -26,6 +26,26 @@ A comprehensive desktop application built with Python and OpenCV for criminal id
 ![Home Page](screenshots/home_page.png)
 *Main interface with navigation to all system features - Register Criminal, Detect Criminal, and Video Surveillance*
 
+### 2. Register Criminal
+![Register Criminal](screenshots/Register%20Criminal.png)
+*Interface for registering new criminals with multiple face images and detailed information*
+
+### 3. Detect Criminal
+![Detect Criminal](screenshots/Detect%20Criminal.png)
+*Face detection and recognition from uploaded images with bounding boxes*
+
+### 4. Criminal Profile
+![Criminal Profile](screenshots/Criminal%20Profile.png)
+*Detailed criminal profile view with photo and personal information*
+
+### 5. Video Surveillance
+![Video Surveillance](screenshots/Video%20survillence%20functionality.png)
+*Real-time camera feed with live criminal identification*
+
+### 6. Terminal Output
+![Terminal](screenshots/terminal.png)
+*System terminal showing application logs and status*
+
 ## 🛠️ Installation & Setup
 
 ### Prerequisites
