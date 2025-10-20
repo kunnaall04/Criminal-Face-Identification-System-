@@ -22,7 +22,9 @@ A comprehensive desktop application built with Python and OpenCV for criminal id
 
 ## 📸 Application Screenshots
 
-*Screenshots will be added here to showcase the application interface and features.*
+### 1. Home Page
+![Home Page](screenshots/home_page.png)
+*Main interface with navigation to all system features - Register Criminal, Detect Criminal, and Video Surveillance*
 
 ## 🛠️ Installation & Setup
 
