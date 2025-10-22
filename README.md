@@ -157,6 +157,137 @@ criminal_face_identification_system/
 - **Video Surveillance**: Real-time camera feed analysis
 - **Profile Viewing**: Click on detected names to view full profiles
 
+## 🔄 System Workflow
+
+### Overall Project Flow
+
+The Criminal Face Identification System follows a comprehensive workflow that can be divided into three main phases:
+
+#### Phase 1: System Setup & Criminal Registration
+```
+1. Database Setup
+   ├── Create MySQL database 'cfis'
+   ├── Create criminaldata table
+   └── Configure database credentials
+
+2. Application Launch
+   ├── Run home.py
+   ├── Initialize face recognition system
+   └── Load existing criminal data
+
+3. Criminal Registration Process
+   ├── Navigate to "Register Criminal"
+   ├── Upload 5+ face images
+   ├── Fill personal details form
+   ├── Process and store face samples
+   ├── Generate face embeddings
+   ├── Save to database
+   └── Create training data for recognition
+```
+
+#### Phase 2: Face Recognition & Detection
+```
+4. Face Recognition Pipeline
+   ├── Input: Image/Video frame
+   ├── Face Detection (Haar Cascade)
+   ├── Image Preprocessing
+   │   ├── Histogram equalization
+   │   └── L2 normalization
+   ├── Feature Extraction
+   ├── Similarity Matching
+   │   ├── Cosine similarity calculation
+   │   ├── Threshold comparison
+   │   └── Margin validation
+   └── Output: Criminal identification
+
+5. Detection Modes
+   ├── Static Image Detection
+   │   ├── Upload image
+   │   ├── Process frame
+   │   ├── Draw bounding boxes
+   │   └── Display results
+   └── Real-time Video Surveillance
+       ├── Capture camera feed
+       ├── Process each frame
+       ├── Live identification
+       └── Continuous monitoring
+```
+
+#### Phase 3: Results & Profile Management
+```
+6. Result Processing
+   ├── Display detected criminal names
+   ├── Show confidence scores
+   ├── Draw bounding boxes around faces
+   └── Provide clickable links to profiles
+
+7. Profile Management
+   ├── View criminal details
+   ├── Display stored photos
+   ├── Show personal information
+   └── Access crime history
+```
+
+### Detailed Workflow Steps
+
+#### Step-by-Step Process Flow:
+
+1. **System Initialization**
+   - Load face cascade classifier
+   - Initialize database connection
+   - Load existing criminal data
+   - Prepare recognition models
+
+2. **Criminal Registration Workflow**
+   ```
+   User Action → Upload Images → Form Filling → Image Processing → Database Storage → Training Data Creation
+   ```
+
+3. **Face Detection Workflow**
+   ```
+   Input Image → Face Detection → Preprocessing → Feature Extraction → Similarity Matching → Result Display
+   ```
+
+4. **Real-time Surveillance Workflow**
+   ```
+   Camera Feed → Frame Capture → Face Detection → Recognition → Live Display → Continuous Loop
+   ```
+
+5. **Profile Access Workflow**
+   ```
+   Detection Result → User Click → Profile Retrieval → Database Query → Information Display
+   ```
+
+### Data Flow Architecture
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Input Source  │───▶│  Face Detection  │───▶│  Preprocessing  │
+│ (Image/Video)   │    │  (Haar Cascade)  │    │  & Normalization│
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                                         │
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Database      │◀───│   Recognition    │◀───│ Feature Extraction│
+│   Storage       │    │   Algorithm      │    │   & Matching    │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         │                       │
+         ▼                       ▼
+┌─────────────────┐    ┌──────────────────┐
+│ Criminal Data   │    │  Result Display   │
+│ & Profiles      │    │  & Bounding Boxes│
+└─────────────────┘    └──────────────────┘
+```
+
+### Key Workflow Components
+
+- **Registration Flow**: Multi-step process ensuring data integrity
+- **Recognition Flow**: Real-time processing with adaptive thresholds
+- **Database Flow**: Seamless data storage and retrieval
+- **UI Flow**: Intuitive user interface with clear navigation
+- **Error Handling**: Robust error management throughout the workflow
+
+This workflow ensures efficient criminal identification while maintaining data accuracy and system reliability.
+
 ## ⚙️ Configuration
 
 ### Recognition Parameters
@@ -214,9 +345,121 @@ webcam = cv2.VideoCapture(0)  # Change index if needed
 - Encrypt sensitive criminal data
 - Regular backup of database and face samples
 
-## 📝 License
+## 📝 License & Acknowledgments
 
+### License
 This project is for educational and law enforcement purposes. Please ensure compliance with local privacy laws and regulations.
+
+### 🏆 Credits & Acknowledgments
+
+This Criminal Face Identification System was built using various open-source technologies, libraries, and models. We extend our sincere gratitude to the developers and contributors of the following technologies:
+
+#### Core Technologies & Libraries
+
+**OpenCV (Open Source Computer Vision Library)**
+- **Version**: 4.9.0.80
+- **Purpose**: Face detection, image processing, and computer vision operations
+- **Credits**: OpenCV team and contributors
+- **License**: Apache 2.0 License
+- **Website**: https://opencv.org/
+
+**NumPy (Numerical Python)**
+- **Version**: 1.26.3
+- **Purpose**: Mathematical operations and array processing for face recognition algorithms
+- **Credits**: NumPy development team
+- **License**: BSD License
+- **Website**: https://numpy.org/
+
+**PIL (Python Imaging Library) / Pillow**
+- **Version**: 10.2.0
+- **Purpose**: Image manipulation and processing
+- **Credits**: Pillow development team
+- **License**: HPND License
+- **Website**: https://pillow.readthedocs.io/
+
+**PyMySQL**
+- **Version**: 1.1.0
+- **Purpose**: MySQL database connectivity and operations
+- **Credits**: PyMySQL contributors
+- **License**: MIT License
+- **Website**: https://github.com/PyMySQL/PyMySQL
+
+**Tkinter**
+- **Purpose**: GUI framework for the desktop application
+- **Credits**: Python Software Foundation
+- **License**: Python Software Foundation License
+- **Website**: https://docs.python.org/3/library/tkinter.html
+
+#### Face Recognition Models & Algorithms
+
+**Haar Cascade Classifier**
+- **Model**: face_cascade.xml
+- **Purpose**: Face detection in images and video streams
+- **Credits**: OpenCV team and Viola-Jones algorithm developers
+- **Algorithm**: Viola-Jones object detection framework
+- **Reference**: Viola, P., & Jones, M. (2001). Rapid object detection using a boosted cascade of simple features
+
+**LBPH (Local Binary Patterns Histograms) Face Recognizer**
+- **Purpose**: Face recognition and feature extraction
+- **Credits**: OpenCV implementation of LBPH algorithm
+- **Algorithm**: Local Binary Patterns for texture classification
+- **Reference**: Ahonen, T., Hadid, A., & Pietikäinen, M. (2004). Face recognition with local binary patterns
+
+**Cosine Similarity Algorithm**
+- **Purpose**: Face matching and similarity calculation
+- **Credits**: Mathematical concept implementation for face recognition
+- **Algorithm**: Cosine similarity for vector comparison
+
+#### Database Technology
+
+**MySQL Database**
+- **Purpose**: Criminal data storage and management
+- **Credits**: Oracle Corporation and MySQL development team
+- **License**: GPL v2.0 / Commercial License
+- **Website**: https://www.mysql.com/
+
+#### Development Tools & Frameworks
+
+**Python Programming Language**
+- **Version**: 3.8+
+- **Purpose**: Core programming language
+- **Credits**: Python Software Foundation
+- **License**: Python Software Foundation License
+- **Website**: https://www.python.org/
+
+#### Special Acknowledgments
+
+**AI-Generated Face Dataset**
+- **Purpose**: Training and testing data for demonstration
+- **Note**: All faces used in this project are AI-generated for educational purposes
+- **Ethics**: No real human faces or personal data were used
+
+**Open Source Community**
+- We thank the entire open-source community for providing these excellent tools and libraries
+- Special thanks to all contributors who made these technologies freely available
+- This project would not have been possible without the collective efforts of the open-source ecosystem
+
+#### Educational Purpose Statement
+
+This project is developed purely for educational and research purposes in the field of computer vision and face recognition technology. It demonstrates the practical application of various machine learning and computer vision techniques for law enforcement and security applications.
+
+**Important Notes:**
+- All technologies used are properly licensed for educational use
+- No proprietary or copyrighted materials were used without permission
+- The project follows ethical guidelines for face recognition technology
+- All AI-generated faces are used solely for demonstration purposes
+
+#### References & Further Reading
+
+1. Viola, P., & Jones, M. (2001). Rapid object detection using a boosted cascade of simple features. CVPR.
+2. Ahonen, T., Hadid, A., & Pietikäinen, M. (2004). Face recognition with local binary patterns. ECCV.
+3. OpenCV Documentation: https://docs.opencv.org/
+4. Python Documentation: https://docs.python.org/
+5. MySQL Documentation: https://dev.mysql.com/doc/
+
+---
+
+**Disclaimer**: This project is for educational purposes only. Users are responsible for ensuring compliance with local privacy laws, data protection regulations, and ethical guidelines when implementing face recognition technology.
 
 ## 🤝 Contributing
 
