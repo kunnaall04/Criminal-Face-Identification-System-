@@ -473,6 +473,13 @@ This project is developed purely for educational and research purposes in the fi
 
 For technical support or questions about implementation, please refer to the code documentation or create an issue in the repository.
 
+### Contact Information
+- **Email**: kunalsali04@gmail.com
+- **GitHub**: [kunnaall04](https://github.com/kunnaall04)
+- **Repository**: [Criminal Face Identification System](https://github.com/kunnaall04/Criminal-Face-Identification-System-)
+
+For any questions, bug reports, or feature requests, feel free to reach out via email or create an issue on GitHub.
+
 ---
 
 **Note**: This system is designed for legitimate law enforcement use. Ensure proper authorization and compliance with applicable laws before deployment.
